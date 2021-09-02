@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+
+header {
+  margin-top: 3%;
+  text-align: center;
+}
+
+.refresh {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-but {
+  margin-left: 0.01%;
+}
