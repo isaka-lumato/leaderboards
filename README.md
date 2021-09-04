@@ -5,7 +5,7 @@
 - ES6 Syntax
 - Writing modular JS
 
-![screenshot](./src/images/leaderboard.png)
+![screenshot](./src/images/css2.png)
 
 Additional description about the project and its features.
 
@@ -22,7 +22,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://isaka-lumato.github.io/leeaderboards/dist/)
+[Live Demo Link](https://isaka-lumato.github.io/leaderboards/)
 
 
 ## Getting Started
