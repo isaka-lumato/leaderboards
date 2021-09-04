@@ -16,7 +16,7 @@
   \*************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".main {\\n  display: flex;\\n  justify-content: space-around;\\n}\\n\\nheader {\\n  margin-top: 3%;\\n  text-align: center;\\n}\\n\\n.refresh {\\n  display: flex;\\n  justify-content: space-around;\\n}\\n\\n.btn-but {\\n  margin-left: 0.01%;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://leaderboards/./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".main {\\n  display: flex;\\n  justify-content: space-around;\\n}\\n\\nheader {\\n  margin-top: 3%;\\n  text-align: center;\\n}\\n\\n.refresh {\\n  display: flex;\\n  justify-content: space-around;\\n}\\n\\n.btn-but {\\n  margin-left: 0.01%;\\n}\\n\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://leaderboards/./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -100,13 +100,53 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 
 /***/ }),
 
+/***/ "./src/createGame.js":
+/*!***************************!*\
+  !*** ./src/createGame.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nconst create = (user, score) => {\n  fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/rsz7tbWAeg4M3AH7kHvF/scores/',\n{\n  method : 'POST',\n  body: JSON.stringify({   \n  user,\n  score,\n  }),\n  headers: {\n    'Content-Type': 'application/json ; charset=UTF-8', \n  }\n}).then(response => response.json()).then(newData=> newData.result);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (create);\n\n//# sourceURL=webpack://leaderboards/./src/createGame.js?");
+
+/***/ }),
+
+/***/ "./src/display.js":
+/*!************************!*\
+  !*** ./src/display.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _get_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./get.js */ \"./src/get.js\");\n\n\nconst display = async () => {\n  const Content = document.getElementById('content');\n  Content.innerHTML = '';\n  const AllScore = await (0,_get_js__WEBPACK_IMPORTED_MODULE_0__.default)();\n  AllScore.forEach((score) => {\n    const li = document.createElement('li');\n    li.innerHTML = `${score.user}: ${score.score}`;\n    Content.appendChild(li);\n  });\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (display);\n\n//# sourceURL=webpack://leaderboards/./src/display.js?");
+
+/***/ }),
+
+/***/ "./src/get.js":
+/*!********************!*\
+  !*** ./src/get.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nconst getData = async () => {\n const data = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/rsz7tbWAeg4M3AH7kHvF/scores/')\n const response = await data.json();\n return response.result;\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getData);\n\n//# sourceURL=webpack://leaderboards/./src/get.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\n//# sourceURL=webpack://leaderboards/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _createGame_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createGame.js */ \"./src/createGame.js\");\n/* harmony import */ var _get_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./get.js */ \"./src/get.js\");\n/* harmony import */ var _display_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./display.js */ \"./src/display.js\");\n/* harmony import */ var _validation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./validation.js */ \"./src/validation.js\");\n\n\n\n\n\n\nconst submitBtn = document.getElementById('sub-btn');\nconst refreshBtn = document.querySelector('#ref-btn');\n\nconst user = document.querySelector('#name');\nconst score = document.querySelector('#score');\n\nsubmitBtn.addEventListener('click', async (e) => {\n  e.preventDefault();\n  if (user.value === '') {\n    (0,_validation_js__WEBPACK_IMPORTED_MODULE_4__.default)('player name', 'danger');\n    return;\n  }\n  if (score.value === '') {\n    (0,_validation_js__WEBPACK_IMPORTED_MODULE_4__.default)('score', 'danger');\n    return;\n  }\n (0,_createGame_js__WEBPACK_IMPORTED_MODULE_1__.default)(user.value, score.value);\n  user.value = '';\n  score.value = '';\n  // window.location.href = './index.html';\n\n  // await display();\n});\n\nrefreshBtn.addEventListener('click', async (e) => {\n  e.preventDefault();\n\n  window.location.href = './index.html';\n  await (0,_display_js__WEBPACK_IMPORTED_MODULE_3__.default)();\n});\n\ndocument.addEventListener('DOMContentLoaded', async () => {\n  await (0,_get_js__WEBPACK_IMPORTED_MODULE_2__.default)();\n  (0,_display_js__WEBPACK_IMPORTED_MODULE_3__.default)();\n});\n\n\n//# sourceURL=webpack://leaderboards/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/validation.js":
+/*!***************************!*\
+  !*** ./src/validation.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nconst alertValid = (field, message) => {\n  const formBody = document.querySelector('form');\n  const valSec = document.createElement('div');\n  valSec.innerHTML = `<div class=\"alert alert-${message}\" role=\"alert\">\n  ${field} is required\n</div>`;\n  formBody.appendChild(valSec);\n  setTimeout(() => formBody.removeChild(valSec), 1500);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (alertValid);\n\n//# sourceURL=webpack://leaderboards/./src/validation.js?");
 
 /***/ })
 
