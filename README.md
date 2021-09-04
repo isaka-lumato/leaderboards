@@ -5,7 +5,7 @@
 - ES6 Syntax
 - Writing modular JS
 
-![screenshot](./src/images/css.png)
+![screenshot](./src/images/css2.png)
 
 Additional description about the project and its features.
 
