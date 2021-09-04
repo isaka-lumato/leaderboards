@@ -32,7 +32,7 @@ body {
   background: rgba(0, 0, 255, 0.397);
 }
 
-#content :nth-child(even){
+#content :nth-child(even) {
   background: rgba(0, 0, 255, 0.527);
 }
 
@@ -40,6 +40,6 @@ li {
   color: rgba(255, 255, 255, 0.692);
   font-weight: bold;
   list-style: none;
-  margin: 0,5%;
+  margin: 0.5%;
   padding-left: 2%;
 }
